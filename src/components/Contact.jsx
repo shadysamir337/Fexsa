@@ -1,10 +1,4 @@
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
-
-// EmailJS configuration - replace with actual values when available
-const EMAILJS_SERVICE_ID = 'service_fexsa';
-const EMAILJS_TEMPLATE_ID = 'template_fexsa_contact';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY_HERE';
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -37,33 +31,26 @@ const Contact = () => {
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     setStatus('loading');
 
-    try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          subject: form.subject,
-          from_name: form.name,
-          reply_to: form.email,
-          mobile: form.mobile,
-          message: form.details,
-          to_email: 'shadysamir335@gmail.com',
-        },
-        EMAILJS_PUBLIC_KEY
-      );
-      setStatus('sent');
-    } catch (error) {
-      // Fallback to mailto if EmailJS isn't configured
-      const mailtoLink = `mailto:shadysamir335@gmail.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nMobile: ${form.mobile}\n\nDetails:\n${form.details}`)}`;
-      window.location.href = mailtoLink;
-      setStatus('sent');
-    }
+    // Build mailto URL with all form data
+    const recipient = 'shadysamir335@gmail.com';
+    const subject = encodeURIComponent(form.subject);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\n` +
+      `Email: ${form.email}\n` +
+      `Mobile: ${form.mobile || 'Not provided'}\n\n` +
+      `Message:\n${form.details}`
+    );
+
+    // Open user's default email client
+    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+    setStatus('sent');
   };
 
   const contactInfo = [
@@ -117,9 +104,15 @@ const Contact = () => {
           {status === 'sent' ? (
             <div className="form-success">
               <div className="success-icon">✓</div>
-              <h4>Message Sent!</h4>
-              <p>Thank you for reaching out. We will get back to you shortly.</p>
-              <button className="btn btn-primary" onClick={() => { setStatus('idle'); setForm({ subject: '', name: '', email: '', mobile: '', details: '' }); }}>
+              <h4>Email Client Opening...</h4>
+              <p>Your email client should open with the message pre-filled. Please send it to complete the submission.</p>
+              <button 
+                className="btn btn-primary" 
+                onClick={() => { 
+                  setStatus('idle'); 
+                  setForm({ subject: '', name: '', email: '', mobile: '', details: '' }); 
+                }}
+              >
                 Send Another Message
               </button>
             </div>
@@ -193,8 +186,8 @@ const Contact = () => {
                 {errors.details && <span className="error-text">{errors.details}</span>}
               </div>
 
-              <button type="submit" className="btn-submit" disabled={status === 'loading'}>
-                {status === 'loading' ? 'Sending…' : 'Submit Message →'}
+              <button type="submit" className="btn-submit">
+                Submit Message →
               </button>
             </form>
           )}
