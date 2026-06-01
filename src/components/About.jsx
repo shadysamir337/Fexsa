@@ -64,7 +64,7 @@ const About = () => {
         }
 
         .about-logo {
-          height: 45px;
+          height: 80px;
           margin-bottom: 20px;
         }
 
@@ -138,7 +138,7 @@ const About = () => {
           }
 
           .about-logo {
-            height: 35px;
+            height: 60px;
           }
 
           .about-text {
