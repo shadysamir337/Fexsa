@@ -4,6 +4,8 @@
 
 A modern, professional single-page React website for FEXSA Inspection & Audit Services LLC — inspired by TÜV Austria's structure and styled with FEXSA's brand colors. Features 10 service cards, 8 sector cards, NDT showcase, certification services, and a fully functional contact form.
 
+**Live:** [https://shadysamir337.github.io/Fexsa/](https://shadysamir337.github.io/Fexsa/)
+
 ---
 
 ## 🚀 Quick Start
