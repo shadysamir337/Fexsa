@@ -71,7 +71,7 @@ Error generating stack: `+i.message+`
         }
 
         .logo-img {
-          height: 60px;
+          height: 80px;
         }
 
         .nav-links {
@@ -206,13 +206,13 @@ Error generating stack: `+i.message+`
           }
 
           .logo-img {
-            height: 50px;
+            height: 65px;
           }
         }
 
         @media (max-width: 480px) {
           .logo-img {
-            height: 40px;
+            height: 55px;
           }
 
           .mobile-nav-links .nav-link {
