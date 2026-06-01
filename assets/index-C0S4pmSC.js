@@ -71,7 +71,7 @@ Error generating stack: `+i.message+`
         }
 
         .logo-img {
-          height: 40px;
+          height: 120px;
         }
 
         .nav-links {
@@ -206,13 +206,13 @@ Error generating stack: `+i.message+`
           }
 
           .logo-img {
-            height: 35px;
+            height: 90px;
           }
         }
 
         @media (max-width: 480px) {
           .logo-img {
-            height: 28px;
+            height: 70px;
           }
 
           .mobile-nav-links .nav-link {
@@ -467,7 +467,7 @@ Error generating stack: `+i.message+`
         }
 
         .about-logo {
-          height: 45px;
+          height: 120px;
           margin-bottom: 20px;
         }
 
@@ -541,7 +541,7 @@ Error generating stack: `+i.message+`
           }
 
           .about-logo {
-            height: 35px;
+            height: 80px;
           }
 
           .about-text {
@@ -1409,7 +1409,7 @@ Error generating stack: `+i.message+`
         }
 
         .footer-logo {
-          height: 35px;
+          height: 120px;
           margin-bottom: 16px;
         }
 
@@ -1485,7 +1485,7 @@ Error generating stack: `+i.message+`
           }
 
           .footer-logo {
-            height: 28px;
+            height: 80px;
           }
 
           .footer-tagline {
