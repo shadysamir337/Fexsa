@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect } from 'react';
 import './styles/global.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -12,6 +12,15 @@ import PopularSolutions from './components/PopularSolutions';
 import WhyChooseFexsa from './components/WhyChooseFexsa';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+
+// Suppress console output in production for security
+if (typeof window !== 'undefined' && import.meta.env?.PROD) {
+  console.log = () => {};
+  console.warn = () => {};
+  console.error = () => {};
+  console.info = () => {};
+  console.debug = () => {};
+}
 
 function App() {
   const sectionRefs = useRef({});

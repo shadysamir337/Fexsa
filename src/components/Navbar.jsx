@@ -269,6 +269,21 @@ const Navbar = () => {
           display: none;
         }
 
+        @media (max-width: 1024px) {
+          .nav-links {
+            gap: 20px;
+          }
+
+          .nav-link {
+            font-size: 0.85rem;
+          }
+
+          .cta-button {
+            padding: 8px 18px;
+            font-size: 0.85rem;
+          }
+        }
+
         @media (max-width: 768px) {
           .desktop-only {
             display: none !important;
@@ -280,6 +295,24 @@ const Navbar = () => {
 
           .logo-img {
             height: 35px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .logo-img {
+            height: 28px;
+          }
+
+          .mobile-nav-links .nav-link {
+            font-size: 1rem;
+          }
+
+          .mobile-menu-toggle span {
+            width: 20px;
+          }
+
+          .mobile-menu {
+            padding: 15px;
           }
         }
       `}</style>

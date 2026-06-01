@@ -124,6 +124,33 @@ const Certification = () => {
             grid-template-columns: 1fr;
           }
         }
+
+        @media (max-width: 480px) {
+          .certification {
+            padding: 40px 0;
+          }
+
+          .cert-card {
+            padding: 18px 12px;
+          }
+
+          .cert-icon {
+            font-size: 1.5rem;
+          }
+
+          .cert-title {
+            font-size: 0.9rem;
+          }
+
+          .cert-desc {
+            font-size: 0.78rem;
+          }
+
+          .standards-bar .badge {
+            font-size: 0.75rem;
+            padding: 6px 12px;
+          }
+        }
       `}</style>
     </section>
   );

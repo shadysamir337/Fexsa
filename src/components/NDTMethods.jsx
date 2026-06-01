@@ -35,10 +35,10 @@ const NDTMethods = () => {
   return (
     <section id="ndt-methods" className="ndt-methods">
       <h2 className="section-heading light">Non-Destructive Testing (NDT) Methods</h2>
-      <p className="section-subheading light" style={{ marginBottom: '30px' }}>
+      <p className="section-subheading light ndt-subheading">
         All methods applied so that neither the component nor the structure is affected
         during the test — personnel certified to{' '}
-        <strong style={{ color: '#00AEEF' }}>EN ISO 9712</strong>.
+        <strong className="ndt-highlight">EN ISO 9712</strong>.
       </p>
       <div className="ndt-grid">
         {ndtMethods.map((method) => (
@@ -51,6 +51,14 @@ const NDTMethods = () => {
       </div>
 
       <style jsx>{`
+        .ndt-subheading {
+          margin-bottom: 30px;
+        }
+
+        .ndt-highlight {
+          color: var(--cyan);
+        }
+
         .ndt-methods {
           background: #080B25;
           padding: 80px 0;
@@ -114,6 +122,33 @@ const NDTMethods = () => {
         @media (max-width: 768px) {
           .ndt-grid {
             grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .ndt-methods {
+            padding: 40px 0;
+          }
+
+          .ndt-subheading {
+            margin-bottom: 20px;
+          }
+
+          .ndt-card {
+            padding: 16px;
+          }
+
+          .ndt-code {
+            font-size: 0.78rem;
+            padding: 4px 12px;
+          }
+
+          .ndt-title {
+            font-size: 0.95rem;
+          }
+
+          .ndt-desc {
+            font-size: 0.8rem;
           }
         }
       `}</style>

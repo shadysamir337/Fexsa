@@ -120,6 +120,29 @@ const WhyChooseFexsa = () => {
             grid-template-columns: 1fr;
           }
         }
+
+        @media (max-width: 480px) {
+          .why-fexsa {
+            padding: 40px 0;
+          }
+
+          .why-item {
+            padding: 16px;
+            gap: 12px;
+          }
+
+          .why-number {
+            font-size: 1.5rem;
+          }
+
+          .why-title {
+            font-size: 0.95rem;
+          }
+
+          .why-desc {
+            font-size: 0.82rem;
+          }
+        }
       `}</style>
     </section>
   );

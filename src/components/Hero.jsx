@@ -76,6 +76,8 @@ const Hero = () => {
           border: 1px solid rgba(0, 174, 239, 0.3);
           border-radius: 30px;
           margin-bottom: 30px;
+          max-width: 90vw;
+          overflow: hidden;
         }
 
         .hero-badge span {
@@ -84,6 +86,7 @@ const Hero = () => {
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 2px;
+          white-space: nowrap;
         }
 
         .hero-title {
@@ -160,8 +163,13 @@ const Hero = () => {
           }
 
           .hero-badge span {
-            font-size: 0.7rem;
-            letter-spacing: 1px;
+            font-size: 0.65rem;
+            letter-spacing: 0.5px;
+          }
+
+          .hero-text {
+            max-width: 100%;
+            font-size: 0.95rem;
           }
         }
       `}</style>

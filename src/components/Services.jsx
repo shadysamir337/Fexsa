@@ -172,6 +172,34 @@ const Services = () => {
             gap: 20px;
           }
         }
+
+        @media (max-width: 480px) {
+          .services {
+            padding: 40px 0;
+          }
+
+          .service-card {
+            padding: 18px;
+          }
+
+          .service-icon {
+            font-size: 1.5rem;
+          }
+
+          .service-title {
+            font-size: 1rem;
+          }
+
+          .service-desc {
+            font-size: 0.82rem;
+            line-height: 1.5;
+          }
+
+          .service-tags .badge {
+            font-size: 0.65rem;
+            padding: 3px 8px;
+          }
+        }
       `}</style>
     </section>
   );

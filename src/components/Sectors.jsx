@@ -137,6 +137,28 @@ const Sectors = () => {
             gap: 16px;
           }
         }
+
+        @media (max-width: 480px) {
+          .sectors {
+            padding: 40px 0;
+          }
+
+          .sector-card {
+            padding: 18px 14px;
+          }
+
+          .sector-icon {
+            font-size: 1.8rem;
+          }
+
+          .sector-name {
+            font-size: 0.95rem;
+          }
+
+          .sector-list li {
+            font-size: 0.82rem;
+          }
+        }
       `}</style>
     </section>
   );

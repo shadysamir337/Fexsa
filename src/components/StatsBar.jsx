@@ -104,6 +104,20 @@ const StatsBar = () => {
           letter-spacing: 1px;
         }
 
+        @media (max-width: 1024px) {
+          .stats-container {
+            gap: 20px;
+          }
+
+          .stat-number {
+            font-size: 2.8rem;
+          }
+
+          .stat-label {
+            font-size: 0.9rem;
+          }
+        }
+
         @media (max-width: 768px) {
           .stats-container {
             grid-template-columns: repeat(2, 1fr);

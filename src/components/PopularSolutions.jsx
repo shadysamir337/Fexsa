@@ -65,6 +65,17 @@ const PopularSolutions = () => {
           transform: translateY(-2px);
         }
 
+        @media (max-width: 1024px) {
+          .popular-grid {
+            gap: 12px;
+          }
+
+          .popular-link {
+            font-size: 0.85rem;
+            padding: 14px 16px;
+          }
+        }
+
         @media (max-width: 768px) {
           .popular-grid {
             grid-template-columns: repeat(2, 1fr);

@@ -15,7 +15,7 @@ const Footer = () => {
     { label: 'Contact', href: '#contact' },
   ];
 
-  const currentYear = 2025;
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="footer">
@@ -137,6 +137,7 @@ const Footer = () => {
         .footer-phone {
           font-size: 0.9rem;
           color: #666;
+          word-break: break-word;
         }
 
         .footer-bottom {
@@ -164,6 +165,36 @@ const Footer = () => {
 
           .footer {
             padding: 40px 0 0;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .footer {
+            padding: 30px 0 0;
+          }
+
+          .footer-logo {
+            height: 28px;
+          }
+
+          .footer-tagline {
+            font-size: 0.82rem;
+          }
+
+          .footer-title {
+            font-size: 0.95rem;
+          }
+
+          .footer-links a {
+            font-size: 0.82rem;
+          }
+
+          .footer-phone {
+            font-size: 0.82rem;
+          }
+
+          .footer-bottom p {
+            font-size: 0.78rem;
           }
         }
       `}</style>

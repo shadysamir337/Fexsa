@@ -58,7 +58,6 @@ const Contact = () => {
       );
       setStatus('sent');
     } catch (error) {
-      console.error('EmailJS Error:', error);
       setStatus('error');
     }
   };
@@ -277,6 +276,7 @@ const Contact = () => {
           color: #fff;
           font-size: 1rem;
           margin-top: 2px;
+          word-break: break-word;
         }
 
         /* Contact Form */
@@ -417,6 +417,49 @@ const Contact = () => {
         @media (max-width: 768px) {
           .contact-form {
             grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .contact {
+            padding: 40px 0;
+          }
+
+          .contact-info,
+          .contact-form-wrapper {
+            padding: 18px;
+          }
+
+          .contact-info-title,
+          .contact-form-title {
+            font-size: 1.1rem;
+          }
+
+          .contact-info-item {
+            padding: 10px;
+            gap: 10px;
+          }
+
+          .contact-icon {
+            font-size: 1.2rem;
+          }
+
+          .contact-value {
+            font-size: 0.85rem;
+          }
+
+          .form-field input,
+          .form-field textarea {
+            padding: 10px 12px;
+            font-size: 0.9rem;
+          }
+
+          .form-field label {
+            font-size: 0.78rem;
+          }
+
+          .form-field textarea {
+            min-height: 100px;
           }
         }
       `}</style>

@@ -13,7 +13,7 @@ const About = () => {
       <div className="about-container">
         <div className="about-left">
           <img src={logoColored} alt="FEXSA" className="about-logo" />
-          <h2 className="section-heading" style={{ textAlign: 'left' }}>Who We Are</h2>
+          <h2 className="section-heading about-heading">Who We Are</h2>
           <p className="about-text">
             FEXSA Inspection &amp; Audit Services LLC is an independent Quality and
             Inspection Services company with a clear focus and international reach.
@@ -57,6 +57,10 @@ const About = () => {
           grid-template-columns: 1fr 1fr;
           gap: 60px;
           align-items: start;
+        }
+
+        .about-heading {
+          text-align: left;
         }
 
         .about-logo {
@@ -121,6 +125,36 @@ const About = () => {
         @media (max-width: 768px) {
           .value-cards-grid {
             grid-template-columns: 1fr;
+          }
+
+          .about-heading {
+            text-align: center;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .about {
+            padding: 40px 0;
+          }
+
+          .about-logo {
+            height: 35px;
+          }
+
+          .about-text {
+            font-size: 0.95rem;
+          }
+
+          .value-card {
+            padding: 16px 12px;
+          }
+
+          .value-title {
+            font-size: 0.95rem;
+          }
+
+          .value-desc {
+            font-size: 0.8rem;
           }
         }
       `}</style>
