@@ -160,7 +160,7 @@ const Navbar = () => {
 
         .logo-img {
           height: 55px;
-          transform: scale(1.4);
+          transform: scale(2.0);
           transform-origin: left center;
         }
 

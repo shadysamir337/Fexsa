@@ -1,5 +1,4 @@
 const popularSolutions = [
-  { label: 'ISO 9001 Certification', href: '#certification' },
   { label: 'NDT Services', href: '#ndt-methods' },
   { label: 'Pressure Equipment Testing', href: '#services' },
   { label: 'Welding Inspection', href: '#services' },

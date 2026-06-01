@@ -62,13 +62,7 @@ const services = [
     tags: ['QRA', 'Steam Boiler', 'PED Compliance'],
     desc: 'Quantitative Risk Assessment (QRA) and plant safety inspections for industrial facilities, steam boilers, pressure equipment, and processing plants. We evaluate operational risks, verify compliance with safety regulations, and recommend mitigation strategies to ensure the protection of personnel, assets, and the environment.',
   },
-  {
-    id: 'system-monitoring',
-    icon: '📊',
-    title: 'System Monitoring & Compliance',
-    tags: ['Building Code', 'F-GAS', 'ISO Audits'],
-    desc: 'Ongoing system monitoring and compliance verification for technical installations, building code requirements, environmental regulations (F-GAS), and quality management systems (ISO 9001, ISO 14001). We provide periodic inspections, audits, and certification support to maintain regulatory compliance and operational excellence.',
-  },
+
 ];
 
 const Services = () => {

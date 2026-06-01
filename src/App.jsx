@@ -6,7 +6,7 @@ import StatsBar from './components/StatsBar';
 import About from './components/About';
 import Services from './components/Services';
 import NDTMethods from './components/NDTMethods';
-import Certification from './components/Certification';
+
 import Sectors from './components/Sectors';
 import PopularSolutions from './components/PopularSolutions';
 import WhyChooseFexsa from './components/WhyChooseFexsa';
@@ -52,7 +52,7 @@ function App() {
         <About />
         <Services />
         <NDTMethods />
-        <Certification />
+
         <Sectors />
         <PopularSolutions />
         <WhyChooseFexsa />
