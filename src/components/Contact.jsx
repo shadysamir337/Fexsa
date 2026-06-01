@@ -12,6 +12,7 @@ const Contact = () => {
     email: '',
     mobile: '',
     details: '',
+    honeypot: '',
   });
   const [status, setStatus] = useState('idle'); // idle | loading | sent | error
   const [errors, setErrors] = useState({});
@@ -38,6 +39,11 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (form.honeypot) {
+      // Honeypot triggered, silently reject
+      setStatus('sent');
+      return;
+    }
     if (!validate()) return;
 
     setStatus('loading');
@@ -85,8 +91,8 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact">
-      <h2 className="section-heading light">Get In Touch</h2>
-      <p className="section-subheading light">
+      <h2 className="section-heading">Get In Touch</h2>
+      <p className="section-subheading">
         Ready to ensure the quality of your next project? Reach out to our team of
         specialists and we will get back to you promptly.
       </p>
@@ -130,6 +136,19 @@ const Contact = () => {
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-field" style={{ display: 'none' }}>
+                <label htmlFor="honeypot">Do not fill this out</label>
+                <input
+                  type="text"
+                  id="honeypot"
+                  name="honeypot"
+                  value={form.honeypot}
+                  onChange={handleChange}
+                  tabIndex="-1"
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="form-field">
                 <label htmlFor="subject">Subject *</label>
                 <input
@@ -208,8 +227,8 @@ const Contact = () => {
 
       <style jsx>{`
         .contact {
-          background: #0A0F2C;
-          padding: 80px 0;
+          background: #F4F7FB;
+          padding: 100px 0;
         }
 
         .contact-grid {
@@ -224,17 +243,18 @@ const Contact = () => {
 
         /* Contact Info */
         .contact-info {
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          background: #ffffff;
+          border: 1px solid #e0e0e0;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
           border-radius: 8px;
-          padding: 30px;
+          padding: 40px 30px;
         }
 
         .contact-info-title {
           font-family: 'Barlow Condensed', sans-serif;
-          font-size: 1.3rem;
+          font-size: 1.5rem;
           font-weight: 700;
-          color: #00AEEF;
+          color: #0D1B5E;
           text-transform: uppercase;
           margin-bottom: 24px;
         }
@@ -247,16 +267,18 @@ const Contact = () => {
 
         .contact-info-item {
           display: flex;
-          gap: 14px;
+          gap: 16px;
           align-items: center;
           padding: 16px;
-          background: rgba(255, 255, 255, 0.03);
+          background: #F4F7FB;
+          border: 1px solid #e0e0e0;
           border-radius: 6px;
-          transition: background 0.3s ease;
+          transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .contact-info-item:hover {
-          background: rgba(0, 174, 239, 0.1);
+          background: #ffffff;
+          border-color: #00AEEF;
         }
 
         .contact-icon {
@@ -265,33 +287,35 @@ const Contact = () => {
         }
 
         .contact-label {
-          font-size: 0.75rem;
-          color: #00AEEF;
+          font-size: 0.8rem;
+          color: #555;
           text-transform: uppercase;
           letter-spacing: 1px;
           font-weight: 600;
         }
 
         .contact-value {
-          color: #fff;
-          font-size: 1rem;
-          margin-top: 2px;
+          color: #333;
+          font-size: 1.05rem;
+          font-weight: 500;
+          margin-top: 4px;
           word-break: break-word;
         }
 
         /* Contact Form */
         .contact-form-wrapper {
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          background: #ffffff;
+          border: 1px solid #e0e0e0;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
           border-radius: 8px;
-          padding: 30px;
+          padding: 40px 30px;
         }
 
         .contact-form-title {
           font-family: 'Barlow Condensed', sans-serif;
-          font-size: 1.3rem;
+          font-size: 1.5rem;
           font-weight: 700;
-          color: #00AEEF;
+          color: #0D1B5E;
           text-transform: uppercase;
           margin-bottom: 24px;
         }
@@ -299,13 +323,13 @@ const Contact = () => {
         .contact-form {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 18px;
+          gap: 20px;
         }
 
         .form-field {
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 8px;
         }
 
         .form-field.full-width {
@@ -313,31 +337,32 @@ const Contact = () => {
         }
 
         .form-field label {
-          color: #B0BEC5;
-          font-size: 0.85rem;
-          font-weight: 500;
+          color: #333;
+          font-size: 0.9rem;
+          font-weight: 600;
         }
 
         .form-field input,
         .form-field textarea {
-          background: rgba(255, 255, 255, 0.06);
-          border: 1px solid rgba(255, 255, 255, 0.12);
+          background: #ffffff;
+          border: 1px solid #ccc;
           border-radius: 4px;
-          padding: 12px 14px;
-          color: #fff;
-          font-size: 0.95rem;
-          transition: border-color 0.3s ease;
+          padding: 14px 16px;
+          color: #333;
+          font-size: 1rem;
+          transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-field input:focus,
         .form-field textarea:focus {
           border-color: #00AEEF;
+          box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.1);
           outline: none;
         }
 
         .form-field input::placeholder,
         .form-field textarea::placeholder {
-          color: rgba(176, 190, 197, 0.5);
+          color: #999;
         }
 
         .form-field input.error,
@@ -364,7 +389,7 @@ const Contact = () => {
         .form-error {
           text-align: center;
           padding: 40px 20px;
-          color: #fff;
+          color: #333;
         }
 
         .success-icon,

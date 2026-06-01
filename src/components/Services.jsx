@@ -74,11 +74,10 @@ const services = [
 const Services = () => {
   return (
     <section id="services" className="services">
-      <h2 className="section-heading light">Our Main Services</h2>
-      <p className="section-subheading light">
-        Comprehensive testing, inspection, and quality services — delivered by certified
-        professionals with decades of international project experience across energy,
-        oil &amp; gas, and industrial sectors.
+      <h2 className="section-heading">Our Expertise &amp; Inspection Services</h2>
+      <p className="section-subheading">
+        Trust in Safety, Progress, and Quality. We provide comprehensive, independent testing,
+        inspection, and quality control services — delivered by certified professionals with decades of international experience.
       </p>
       <div className="services-grid">
         {services.map((service) => (
@@ -97,8 +96,8 @@ const Services = () => {
 
       <style jsx>{`
         .services {
-          background: #0A0F2C;
-          padding: 80px 0;
+          background: #ffffff;
+          padding: 100px 0;
         }
 
         .services-grid {
@@ -107,34 +106,38 @@ const Services = () => {
           padding: 0 20px;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
+          gap: 30px;
         }
 
         .service-card {
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          padding: 28px;
-          color: #fff;
+          background: #ffffff;
+          border: 1px solid #e0e0e0;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+          padding: 32px;
+          color: #333;
+          border-radius: 8px;
+          transition: all 0.3s ease;
         }
 
         .service-card:hover {
-          background: rgba(255, 255, 255, 0.06);
+          background: #ffffff;
           border-color: #00AEEF;
-          transform: translateY(-4px);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+          transform: translateY(-5px);
         }
 
         .service-icon {
-          font-size: 2rem;
-          margin-bottom: 12px;
+          font-size: 2.5rem;
+          margin-bottom: 16px;
         }
 
         .service-title {
           font-family: 'Barlow Condensed', sans-serif;
-          font-size: 1.15rem;
+          font-size: 1.25rem;
           font-weight: 700;
-          color: #fff;
+          color: #0D1B5E;
           text-transform: uppercase;
-          margin-bottom: 12px;
+          margin-bottom: 14px;
           line-height: 1.3;
         }
 
@@ -146,18 +149,24 @@ const Services = () => {
         }
 
         .service-tags .badge {
-          font-size: 0.7rem;
-          padding: 4px 10px;
-          background: rgba(0, 174, 239, 0.1);
-          border: 1px solid rgba(0, 174, 239, 0.3);
+          font-size: 0.75rem;
+          padding: 5px 12px;
+          background: #F4F7FB;
+          border: 1px solid #ccc;
+          color: #555;
+          border-radius: 4px;
+          font-weight: 600;
+        }
+
+        .service-card:hover .service-tags .badge {
+          border-color: #00AEEF;
           color: #00AEEF;
-          border-radius: 12px;
         }
 
         .service-desc {
-          font-size: 0.9rem;
-          color: #B0BEC5;
-          line-height: 1.65;
+          font-size: 0.95rem;
+          color: #555;
+          line-height: 1.6;
         }
 
         @media (max-width: 1024px) {
