@@ -43,6 +43,8 @@ const Hero = () => {
           justify-content: center;
           background: linear-gradient(135deg, #0A0F2C 0%, #0D1B5E 50%, #0A0F2C 100%);
           overflow: hidden;
+          padding-top: 100px;
+          padding-bottom: 40px;
         }
 
         .hero-overlay {
