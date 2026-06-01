@@ -98,7 +98,7 @@ const Footer = () => {
         }
 
         .footer-logo {
-          height: 80px;
+          height: 120px;
           margin-bottom: 16px;
         }
 
@@ -174,7 +174,7 @@ const Footer = () => {
           }
 
           .footer-logo {
-            height: 60px;
+            height: 80px;
           }
 
           .footer-tagline {
