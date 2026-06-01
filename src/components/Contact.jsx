@@ -52,7 +52,7 @@ const Contact = () => {
           reply_to: form.email,
           mobile: form.mobile || 'Not provided',
           message: form.details,
-          to_email: 'shadysamir335@gmail.com',
+          to_email: 'shadysamir337@gmail.com',
         },
         EMAILJS_PUBLIC_KEY
       );
