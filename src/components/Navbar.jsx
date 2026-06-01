@@ -159,7 +159,7 @@ const Navbar = () => {
         }
 
         .logo-img {
-          height: 55px;
+          height: 70px;
         }
 
         .nav-links {
@@ -294,13 +294,13 @@ const Navbar = () => {
           }
 
           .logo-img {
-            height: 45px;
+            height: 55px;
           }
         }
 
         @media (max-width: 480px) {
           .logo-img {
-            height: 35px;
+            height: 45px;
           }
 
           .mobile-nav-links .nav-link {
