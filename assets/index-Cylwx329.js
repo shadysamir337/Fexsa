@@ -44,7 +44,7 @@ Error generating stack: `+i.message+`
           left: 0;
           right: 0;
           z-index: 1000;
-          padding: 20px 0;
+          padding: 10px 0;
           transition: all 0.3s ease;
           background: transparent;
         }
@@ -52,7 +52,7 @@ Error generating stack: `+i.message+`
         .navbar.scrolled {
           background: rgba(10, 15, 44, 0.95);
           backdrop-filter: blur(10px);
-          padding: 15px 0;
+          padding: 5px 0;
           box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
 
@@ -71,7 +71,7 @@ Error generating stack: `+i.message+`
         }
 
         .logo-img {
-          height: 80px;
+          height: 100px;
         }
 
         .nav-links {
@@ -206,13 +206,13 @@ Error generating stack: `+i.message+`
           }
 
           .logo-img {
-            height: 65px;
+            height: 80px;
           }
         }
 
         @media (max-width: 480px) {
           .logo-img {
-            height: 55px;
+            height: 65px;
           }
 
           .mobile-nav-links .nav-link {
