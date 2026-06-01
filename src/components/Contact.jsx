@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+
+const EMAILJS_SERVICE_ID = 'service_kfkojse';
+const EMAILJS_TEMPLATE_ID = 'template_y376u63';
+const EMAILJS_PUBLIC_KEY = 'f1AEnGOz1Kikqir5a';
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -31,26 +36,31 @@ const Contact = () => {
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     setStatus('loading');
 
-    // Build mailto URL with all form data
-    const recipient = 'shadysamir335@gmail.com';
-    const subject = encodeURIComponent(form.subject);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\n` +
-      `Email: ${form.email}\n` +
-      `Mobile: ${form.mobile || 'Not provided'}\n\n` +
-      `Message:\n${form.details}`
-    );
-
-    // Open user's default email client
-    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
-
-    setStatus('sent');
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          subject: form.subject,
+          from_name: form.name,
+          reply_to: form.email,
+          mobile: form.mobile || 'Not provided',
+          message: form.details,
+          to_email: 'shadysamir335@gmail.com',
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setStatus('sent');
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setStatus('error');
+    }
   };
 
   const contactInfo = [
@@ -104,16 +114,19 @@ const Contact = () => {
           {status === 'sent' ? (
             <div className="form-success">
               <div className="success-icon">✓</div>
-              <h4>Email Client Opening...</h4>
-              <p>Your email client should open with the message pre-filled. Please send it to complete the submission.</p>
-              <button 
-                className="btn btn-primary" 
-                onClick={() => { 
-                  setStatus('idle'); 
-                  setForm({ subject: '', name: '', email: '', mobile: '', details: '' }); 
-                }}
-              >
+              <h4>Message Sent!</h4>
+              <p>Thank you for reaching out. We will get back to you shortly.</p>
+              <button className="btn btn-primary" onClick={() => { setStatus('idle'); setForm({ subject: '', name: '', email: '', mobile: '', details: '' }); setErrors({}); }}>
                 Send Another Message
+              </button>
+            </div>
+          ) : status === 'error' ? (
+            <div className="form-error">
+              <div className="error-icon">!</div>
+              <h4>Something Went Wrong</h4>
+              <p>We couldn't send your message. Please try again or contact us directly at info@fexsa.net.</p>
+              <button className="btn btn-primary" onClick={() => { setStatus('idle'); setErrors({}); }}>
+                Try Again
               </button>
             </div>
           ) : (
@@ -186,8 +199,8 @@ const Contact = () => {
                 {errors.details && <span className="error-text">{errors.details}</span>}
               </div>
 
-              <button type="submit" className="btn-submit">
-                Submit Message →
+              <button type="submit" className="btn-submit" disabled={status === 'loading'}>
+                {status === 'loading' ? 'Sending…' : 'Submit Message →'}
               </button>
             </form>
           )}
@@ -347,35 +360,52 @@ const Contact = () => {
         }
 
         /* Success State */
-        .form-success {
+        .form-success,
+        .form-error {
           text-align: center;
           padding: 40px 20px;
           color: #fff;
         }
 
-        .success-icon {
+        .success-icon,
+        .error-icon {
           display: inline-flex;
           align-items: center;
           justify-content: center;
           width: 60px;
           height: 60px;
-          background: #00AEEF;
-          color: #0A0F2C;
           border-radius: 50%;
           font-size: 1.8rem;
           font-weight: 700;
           margin-bottom: 16px;
         }
 
-        .form-success h4 {
+        .success-icon {
+          background: #00AEEF;
+          color: #0A0F2C;
+        }
+
+        .error-icon {
+          background: #ff4444;
+          color: #fff;
+        }
+
+        .form-success h4,
+        .form-error h4 {
           font-family: 'Barlow Condensed', sans-serif;
           font-size: 1.5rem;
           margin-bottom: 8px;
         }
 
-        .form-success p {
+        .form-success p,
+        .form-error p {
           color: #B0BEC5;
           margin-bottom: 24px;
+        }
+
+        .btn-submit:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
         }
 
         @media (max-width: 1024px) {
