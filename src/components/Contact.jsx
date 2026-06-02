@@ -58,7 +58,7 @@ const Contact = () => {
           reply_to: form.email,
           mobile: form.mobile || 'Not provided',
           message: form.details,
-          to_email: 'shadysamir337@gmail.com',
+          to_email: 'info@fexsa.net',
         },
         EMAILJS_PUBLIC_KEY
       );
