@@ -82,7 +82,7 @@ const Contact = () => {
       icon: '📱',
     },
     {
-      label: 'Phone 2',
+      label: 'Phone 2 / WhatsApp',
       value: '(+971) 52 435 02 07',
       href: 'tel:+971524350207',
       icon: '📱',
@@ -218,7 +218,7 @@ const Contact = () => {
               </div>
 
               <button type="submit" className="btn-submit" disabled={status === 'loading'}>
-                {status === 'loading' ? 'Sending…' : 'Submit Message →'}
+                {status === 'loading' ? 'Sending…' : 'Submit →'}
               </button>
             </form>
           )}

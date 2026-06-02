@@ -47,7 +47,16 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
-          <img src={logoWhite} alt="FEXSA" className="logo-img" />
+          <a
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('#home');
+            }}
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
+            <img src={logoWhite} alt="FEXSA" className="logo-img" />
+          </a>
         </div>
 
         {/* Desktop Navigation */}
